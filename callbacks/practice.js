@@ -28,7 +28,10 @@
 */
 
 // Code Here 
-
+// function first(arr, func) {
+//   func(arr[0]);
+// }
+var first = (arr, func) => { func(arr[0])};
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -48,7 +51,10 @@ first(names, function(firstName){
 */
 
 //Code Here
-
+// function last(arr, func) {
+//   func(arr[arr.length-1]);
+// }
+var last = (arr, func) => {func(arr[arr.length-1]);};
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -65,7 +71,7 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
-//Code Here
+var multiply = (a, b, func) => {func(a*b)};
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -84,7 +90,7 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+var contains = (arr, name, func) => {if(arr.indexOf(name) > -1){ func(true)} else {func(false)} };
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -105,7 +111,7 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+var uniq = (arr, func) => {func([...new Set(arr)]);}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -122,7 +128,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+var each = (arr, func) => {
+  for(let i =0; i < arr.length ;i++) {
+    func(arr[i], i);
+  }
+}; 
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -139,7 +149,14 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+var getUserById = (arr, id, func) => {
+  for(let u of arr)
+  {
+    if(u.id === id) {
+      func(u);
+    }
+  }
+};
 
 // Do not edit the code below.
 var users = [
